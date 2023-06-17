@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Components/Home';
+import { useSelector } from 'react-redux';
+import Login from './Components/Login';
+import Navbar from './Components/Navbar';
+import Repo from './Components/Repo';
+import SingleRepo from './Components/SingleRepo';
 
 function App() {
+  let selectors = useSelector((state) => {
+    return state.colors.theme;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="app"
+      style={{
+        backgroundColor: selectors ? 'white' : '#28231D',
+        color: selectors ? '#28231D' : 'white',
+        fontFamily: 'cursive',
+      }}
+    >
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/repo" element={<Repo />}></Route>
+        <Route path="/repo/:reponame" element={<SingleRepo />}></Route>
+      </Routes>
     </div>
   );
 }

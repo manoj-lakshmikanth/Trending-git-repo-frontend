@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'cursive';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,189 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* App styling */
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Home Page styling */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+}
+
+/* Navbar styling */
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  column-gap: 50%;
+}
+
+/* Login styling */
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.home > button {
+  width: 10%;
+  height: 35px;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+/* Repo page styling */
+.repo {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 40px;
+}
+
+.allrepo {
+  border: 2px solid gray;
+  width: 95%;
+  height: 550px;
+  border-radius: 10px;
+  padding-top: 20px;
+  display: grid;
+  row-gap: 20px;
+  grid-template-columns: auto auto;
+  padding-left: 70px;
+  overflow: auto;
+}
+
+.allrepo::-webkit-scrollbar {
+  display: none;
+}
+
+.repobox {
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 90%;
+  height: 70px;
+}
+.repohover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filters > div {
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 5%;
+  justify-content: space-between;
+}
+
+/* Single repo page styling */
+.singlerepo {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 40px;
+}
+
+@media only screen and (max-width: 850px) {
+  .app {
+    height: 120vh;
+    width: 120vw;
+  }
+
+  .navbar {
+    column-gap: 35%;
+  }
+  .allrepo {
+    width: 95%;
+    height: 1000px;
+    padding-left: 20px;
+  }
+
+  .repobox {
+    height: 100px;
+  }
+  .filters > div {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .app {
+    height: 200vh;
+    width: 140vw;
+  }
+  .navbar {
+    column-gap: 20%;
+  }
+
+  .repo {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 40px;
+  }
+
+  .allrepo {
+    width: 95%;
+    height: 1000px;
+    padding-left: 20px;
+  }
+
+  .repobox {
+    height: 100px;
+  }
+  .filters > div {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  .app {
+    height: 210vh;
+    width: 210vw;
+  }
+
+  .navbar {
+    column-gap: 30%;
+  }
+
+  .allrepo {
+    height: 1200px;
+    padding-left: 30px;
+  }
+
+  .repobox {
+    height: 100px;
+  }
+
+  .filters > div {
+    width: 30%;
+  }
 }

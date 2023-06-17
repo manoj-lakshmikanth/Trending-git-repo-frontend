@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Website is responsive, theme featured with the use of redux-toolkit for state management.
+
+Let me take you to a detailed tour of the current website.
+
+1. As the website starts it opens to home page(snap is provided in Image folder.). Further if we click "Click to Login" it takes us to Login page.
+2. Here further clicking "Login" it fetches the OAuth link where authorization is done once, here the route is given as "/login".
+3. Further on logging in it takes to the trending repository page with route "/repo". Here as we login access token is generated in the backend is fetched to frontend to show github avatar and name.
+4. The trending repositories data fetched can be filtered acoording to language and date range. Only repository name and language is shown in trending repo page. Individual information is shown in next page.
+5. If any repository is clicked it navigates to "/repo/<repo-name>" page. It contains details of
+   a. repository name
+   b. language
+   c. immediate stars
+   d. date range
+   e. forks
+   f. stars
+6. Finally, on clicking logout it takes back to home page "/"
+
+Images are placed in image folder under frontend folder. Image series is given below to refer:
+-> Home page
+-> Login page
+-> Authorization page
+-> Trending repo page
+-> Individual repo page
