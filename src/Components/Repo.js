@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { dummy1 } from '../store/slices/UserSlice';
 
 const Repo = () => {
@@ -17,6 +17,9 @@ const Repo = () => {
   let dummy = useSelector((state) => {
     return state.colors.dummyArr;
   });
+
+  const { code } = useParams();
+  console.log(code);
 
   async function getRepos() {
     await fetch('http://localhost:8000/getRepos', {

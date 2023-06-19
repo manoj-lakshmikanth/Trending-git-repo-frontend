@@ -7,14 +7,12 @@ const colorSlice = createSlice({
     val: 'xyz',
     dummyArr: [],
     repoObj: {},
+    loggedIn: true,
   },
 
   reducers: {
     darkTheme: (state, action) => {
       state.theme = action.payload;
-    },
-    value: (state, action) => {
-      state.val = action.payload;
     },
     dummy1: (state, action) => {
       state.dummyArr = action.payload;
@@ -22,8 +20,12 @@ const colorSlice = createSlice({
     singleObjRepo: (state, action) => {
       state.repoObj = action.payload;
     },
+    isLoggedIn: (state, action) => {
+      state.loggedIn = action.payload;
+    },
   },
 });
 
 export default colorSlice.reducer;
-export const { darkTheme, dummy1, singleObjRepo } = colorSlice.actions;
+export const { darkTheme, dummy1, singleObjRepo, isLoggedIn } =
+  colorSlice.actions;

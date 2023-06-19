@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import Home from './Components/Home';
 import { useSelector } from 'react-redux';
 import Login from './Components/Login';
@@ -10,6 +10,10 @@ function App() {
   let selectors = useSelector((state) => {
     return state.colors.theme;
   });
+  let logIn = useSelector((state) => {
+    return state.colors.loggedIn;
+  });
+  console.log(logIn);
 
   return (
     <div

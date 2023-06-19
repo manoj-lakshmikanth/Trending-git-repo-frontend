@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { darkTheme } from '../store/slices/UserSlice';
+import { darkTheme, isLoggedIn } from '../store/slices/UserSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const [reRender, setReRender] = useState(true);
-  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
   let selectors = useSelector((state) => {
@@ -16,48 +14,11 @@ const Navbar = () => {
     dispatch(darkTheme(!selectors));
   }
 
-  useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const codeParams = urlParams.get('code');
+  let logIn = useSelector((state) => {
+    return state.colors.loggedIn;
+  });
 
-    if (codeParams && localStorage.getItem('accessToken') === null) {
-      async function getAccessToken() {
-        await fetch('http://localhost:8000/getAccessToken?code=' + codeParams, {
-          method: 'GET',
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            // console.log(data);
-            if (data.access_token) {
-              localStorage.setItem('accessToken', data.access_token);
-              setReRender(!reRender);
-            } else {
-              console.log('error');
-            }
-          });
-      }
-      getAccessToken();
-    }
-    async function getUserData() {
-      await fetch('http://localhost:8000/getUserData', {
-        method: 'GET',
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
-        },
-      })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          // console.log(data);
-          setUserData(data);
-        });
-    }
-    getUserData();
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div
       className="navbar"
@@ -103,7 +64,7 @@ const Navbar = () => {
         >
           Theme
         </button>
-        {localStorage.getItem('accessToken') ? (
+        {logIn ? (
           <div
             style={{
               display: 'flex',
@@ -115,6 +76,7 @@ const Navbar = () => {
             <button
               onClick={() => {
                 localStorage.removeItem('accessToken');
+                dispatch(isLoggedIn(false));
                 navigate('/');
               }}
               style={{
@@ -128,16 +90,6 @@ const Navbar = () => {
             >
               Logout
             </button>
-            <h4 style={{ width: '40%' }}>{userData.login}</h4>
-            <img
-              src={userData.avatar_url}
-              alt="profile pic"
-              style={{
-                maxWidth: '40px',
-                maxHeight: '40px',
-                borderRadius: '20px',
-              }}
-            />
           </div>
         ) : (
           <div></div>

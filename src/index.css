@@ -25,7 +25,15 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15%;
+  margin-top: 10%;
+}
+
+.signin {
+  color: rgb(100, 100, 224);
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* Navbar styling */
@@ -44,7 +52,8 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15%;
+  margin-top: 10%;
+  justify-content: center;
 }
 
 .home > button {
