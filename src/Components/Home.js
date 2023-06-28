@@ -25,7 +25,7 @@ const Home = () => {
       alert('Please fill all the details ');
     } else {
       let options = {
-        url: 'http://localhost:8000/user',
+        url: 'https://trending-git-repo-backend.vercel.app/user',
         method: 'post',
         headers: { 'content-type': 'application/json' },
         data: userVal,

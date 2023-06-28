@@ -16,7 +16,7 @@ const Login = () => {
   const [userVal, setUserVal] = useState({ email: '', password: '' });
   async function submitHandler() {
     let options = {
-      url: 'http://localhost:8000/login',
+      url: 'https://trending-git-repo-backend.vercel.app/login',
       method: 'post',
       headers: { 'content-type': 'application/json' },
       data: userVal,

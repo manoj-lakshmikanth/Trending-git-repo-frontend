@@ -22,7 +22,7 @@ const Repo = () => {
   console.log(code);
 
   async function getRepos() {
-    await fetch('http://localhost:8000/getRepos', {
+    await fetch('https://trending-git-repo-backend.vercel.app/getRepos', {
       method: 'GET',
     })
       .then((response) => {
@@ -37,7 +37,7 @@ const Repo = () => {
   }
 
   async function weeklyRepos() {
-    await fetch('http://localhost:8000/getWeeklyRepos', {
+    await fetch('https://trending-git-repo-backend.vercel.app/getWeeklyRepos', {
       method: 'GET',
     })
       .then((response) => {
@@ -52,9 +52,12 @@ const Repo = () => {
   }
 
   async function monthlyRepos() {
-    await fetch('http://localhost:8000/getMonthlyRepos', {
-      method: 'GET',
-    })
+    await fetch(
+      'https://trending-git-repo-backend.vercel.app/getMonthlyRepos',
+      {
+        method: 'GET',
+      }
+    )
       .then((response) => {
         return response.json();
       })
