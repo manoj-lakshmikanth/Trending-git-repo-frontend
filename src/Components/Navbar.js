@@ -61,6 +61,7 @@ const Navbar = () => {
             height: '30px',
             borderRadius: '5px',
           }}
+          className="sbutton"
         >
           Theme
         </button>
@@ -87,6 +88,7 @@ const Navbar = () => {
                 height: '30px',
                 borderRadius: '5px',
               }}
+              className="sbutton"
             >
               Logout
             </button>

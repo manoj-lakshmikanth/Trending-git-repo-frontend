@@ -111,6 +111,7 @@ const Login = () => {
             height: '30px',
             borderRadius: '5px',
           }}
+          className="sbutton"
         >
           Sign In
         </button>

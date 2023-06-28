@@ -28,6 +28,10 @@ code {
   margin-top: 10%;
 }
 
+.sbutton:hover {
+  cursor: pointer;
+}
+
 .signin {
   color: rgb(100, 100, 224);
   text-decoration: underline;

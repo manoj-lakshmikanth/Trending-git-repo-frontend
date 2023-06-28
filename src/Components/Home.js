@@ -101,7 +101,7 @@ const Home = () => {
             style={{
               display: 'flex',
               flexDirection: 'row',
-              columnGap: '10%',
+              columnGap: '12%',
               alignItems: 'center',
             }}
           >
@@ -116,11 +116,11 @@ const Home = () => {
             style={{
               display: 'flex',
               flexDirection: 'row',
-              columnGap: '10%',
+              columnGap: '1%',
               alignItems: 'center',
             }}
           >
-            <p>Password</p>
+            <p style={{ width: '33%' }}>Confirm Password</p>
             <input
               onChange={(e) => {
                 setUserVal({ ...userVal, cpassword: e.target.value });
@@ -140,6 +140,7 @@ const Home = () => {
             height: '30px',
             borderRadius: '5px',
           }}
+          className="sbutton"
         >
           Sign Up
         </button>
